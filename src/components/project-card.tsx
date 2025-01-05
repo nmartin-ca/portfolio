@@ -7,6 +7,7 @@ export type Project = {
   description: string
   role: string
   period?: string
+  source?: string
   achievements: string[]
   technologies: string[]
   href: string
@@ -17,6 +18,7 @@ type ProjectCardProps = {
   description: string
   role: string
   period?: string
+  source?: string
   achievements: string[]
   technologies: string[]
   href: string
@@ -27,6 +29,7 @@ export function ProjectCard({
   description,
   role,
   period,
+  source,
   achievements,
   technologies,
   href,
@@ -40,6 +43,13 @@ export function ProjectCard({
           </h2>
         </Link>
         <div className="flex justify-between gap-4">
+          {source ? (
+            <Link href={source} target="_blank">
+              <CodeIcon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
+            </Link>
+          ) : (
+            <ShieldMinusIcon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors cursor-not-allowed" />
+          )}
           <Link href={href} target="_blank">
             <Link2Icon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
           </Link>

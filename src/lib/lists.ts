@@ -172,6 +172,7 @@ export const projects: Project[] = [
       "Implemented a custom 404 page using Next.js.",
     ],
     technologies: ["typescript", "Next.js", "TailwindCSS", "Cloudflare"],
+    source: "https://github.com/nmartin-ca/portfolio",
   },
 ]
 
