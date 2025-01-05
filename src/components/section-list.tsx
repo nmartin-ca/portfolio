@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, StarIcon } from "lucide-react"
 
 export type Item = {
   title: string
@@ -18,6 +18,24 @@ type SectionListProps = {
   viewAllText?: string
 }
 
+function ProficiencyStars({ item }: { item: Item }) {
+  return (
+    <span className="flex items-center cursor-help">
+      {[...Array(5)].map((_, i) => (
+        <StarIcon
+          key={`${item.title}-proficiency-${i}`}
+          size={14}
+          className={
+            i < item.proficiency!
+              ? "fill-accent stroke-accent"
+              : "stroke-gray-600"
+          }
+        />
+      ))}
+    </span>
+  )
+}
+
 export function SectionList({
   title,
   description,
@@ -25,7 +43,7 @@ export function SectionList({
   viewAllHref,
   viewAllText,
 }: SectionListProps) {
-  const isLongList = items.length > 3;
+  const isLongList = items.length > 3
 
   return (
     <section className="mb-16 animate-fade-in-up">
@@ -34,60 +52,72 @@ export function SectionList({
       </h2>
 
       {description && (
-        <p className="leading-relaxed animate-fade-in-up mb-6">
-          {description}
-        </p>
+        <p className="leading-relaxed animate-fade-in-up mb-6">{description}</p>
       )}
 
       <div className="space-y-8">
         {items.map((item, index) => (
           <div key={item.title} className="group">
-          {item.href ? (
-            <Link href={item.href} target="_blank">
-              <div className="group-hover:cursor-pointer">
-                <h3 className={`font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200 ${isLongList ? 'text-lg' : 'text-xl'} flex items-center gap-2`}>
+            {item.href ? (
+              <Link href={item.href} target="_blank">
+                <div className="group-hover:cursor-pointer">
+                  <h3
+                    className={`font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200 ${
+                      isLongList ? "text-lg" : "text-xl"
+                    } flex items-center gap-2`}
+                  >
+                    {item.title}
+                    {item.proficiency && (
+                      <p className="has-tooltip">
+                        <ProficiencyStars item={item} />
+                        <span className="tooltip">Proficiency Level</span>
+                      </p>
+                    )}
+                  </h3>
+                  {item.role && (
+                    <p
+                      className={`text-gray-400 mb-2 ${
+                        isLongList ? "text-xs" : "text-sm"
+                      }`}
+                    >
+                      {item.role} {item.period && `(${item.period})`}
+                    </p>
+                  )}
+                  <p className={`text-gray-300 ${isLongList ? "text-sm" : ""}`}>
+                    {item.description}
+                  </p>
+                </div>
+              </Link>
+            ) : (
+              <div>
+                <h3
+                  className={`font-semibold mb-1 text-white ${
+                    isLongList ? "text-lg" : "text-xl"
+                  } flex items-center gap-2`}
+                >
                   {item.title}
                   {item.proficiency && (
                     <p className="has-tooltip">
-                      <span className="text-sm cursor-help">
-                        <span className="text-accent">{'*'.repeat(item.proficiency)}</span>
-                        <span className="text-gray-600">{'*'.repeat(5 - item.proficiency)}</span>
-                      </span>
+                      <ProficiencyStars item={item} />
                       <span className="tooltip">Proficiency Level</span>
                     </p>
                   )}
                 </h3>
                 {item.role && (
-                  <p className={`text-gray-400 mb-2 ${isLongList ? 'text-xs' : 'text-sm'}`}>
+                  <p
+                    className={`text-gray-400 mb-2 ${
+                      isLongList ? "text-xs" : "text-sm"
+                    }`}
+                  >
                     {item.role} {item.period && `(${item.period})`}
                   </p>
                 )}
-                <p className={`text-gray-300 ${isLongList ? 'text-sm' : ''}`}>{item.description}</p>
+                <p className={`text-gray-300 ${isLongList ? "text-sm" : ""}`}>
+                  {item.description}
+                </p>
               </div>
-            </Link>
-          ) : (
-            <div>
-              <h3 className={`font-semibold mb-1 text-white ${isLongList ? 'text-lg' : 'text-xl'} flex items-center gap-2`}>
-                {item.title}
-                {item.proficiency && (
-                  <p className="has-tooltip">
-                  <span className="text-sm cursor-help">
-                    <span className="text-accent">{'*'.repeat(item.proficiency)}</span>
-                    <span className="text-gray-600">{'*'.repeat(5 - item.proficiency)}</span>
-                  </span>
-                  <span className="tooltip">Proficiency Level</span>
-                </p>
-                )}
-              </h3>
-              {item.role && (
-                <p className={`text-gray-400 mb-2 ${isLongList ? 'text-xs' : 'text-sm'}`}>
-                  {item.role} {item.period && `(${item.period})`}
-                </p>
-              )}
-              <p className={`text-gray-300 ${isLongList ? 'text-sm' : ''}`}>{item.description}</p>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
         ))}
       </div>
       {viewAllHref && (
