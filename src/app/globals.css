@@ -59,3 +59,15 @@ body {
 .prose code span {
   @apply font-medium text-gray-200;
 }
+
+.tooltip {
+  @apply invisible opacity-0 absolute left-1/2 -translate-x-1/2 bottom-full w-fit h-fit whitespace-nowrap;
+}
+
+.has-tooltip {
+  @apply relative;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible opacity-100 z-50 p-2 rounded border border-gray-800 bg-background shadow-lg mb-2 text-sm text-foreground transition-[visibility,opacity] duration-300 ease-in-out;
+}
