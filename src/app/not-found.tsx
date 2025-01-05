@@ -16,7 +16,7 @@ export default function NotFound() {
           `}
         </pre>
         <p className="text-gray-400">
-          looks like you've wandered into uncharted territory
+          this page doesn&apos;t exist here
         </p>
         <Link
           href="/"
