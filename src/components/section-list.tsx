@@ -48,10 +48,13 @@ export function SectionList({
                 <h3 className={`font-semibold mb-1 text-white group-hover:text-accent transition-colors duration-200 ${isLongList ? 'text-lg' : 'text-xl'} flex items-center gap-2`}>
                   {item.title}
                   {item.proficiency && (
-                    <span className="text-sm cursor-help" title={item.proficiency.description}>
-                      <span className="text-accent">{'*'.repeat(item.proficiency.level)}</span>
-                      <span className="text-gray-600">{'*'.repeat(5 - item.proficiency.level)}</span>
-                    </span>
+                    <p className="has-tooltip">
+                      <span className="text-sm cursor-help">
+                        <span className="text-accent">{'*'.repeat(item.proficiency)}</span>
+                        <span className="text-gray-600">{'*'.repeat(5 - item.proficiency)}</span>
+                      </span>
+                      <span className="tooltip">Proficiency Level</span>
+                    </p>
                   )}
                 </h3>
                 {item.role && (
@@ -67,10 +70,13 @@ export function SectionList({
               <h3 className={`font-semibold mb-1 text-white ${isLongList ? 'text-lg' : 'text-xl'} flex items-center gap-2`}>
                 {item.title}
                 {item.proficiency && (
-                  <span className="text-sm cursor-help" title={item.proficiency.description}>
-                    <span className="text-accent">{'*'.repeat(item.proficiency.level)}</span>
-                    <span className="text-gray-600">{'*'.repeat(5 - item.proficiency.level)}</span>
+                  <p className="has-tooltip">
+                  <span className="text-sm cursor-help">
+                    <span className="text-accent">{'*'.repeat(item.proficiency)}</span>
+                    <span className="text-gray-600">{'*'.repeat(5 - item.proficiency)}</span>
                   </span>
+                  <span className="tooltip">Proficiency Level</span>
+                </p>
                 )}
               </h3>
               {item.role && (

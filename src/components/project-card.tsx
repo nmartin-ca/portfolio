@@ -44,11 +44,17 @@ export function ProjectCard({
         </Link>
         <div className="flex justify-between gap-4">
           {source ? (
-            <Link href={source} target="_blank">
-              <CodeIcon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
-            </Link>
+            <p className="has-tooltip">
+              <Link href={source} target="_blank">
+                <CodeIcon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
+              </Link>
+              <span className="tooltip">Source Available</span>
+            </p>
           ) : (
-            <ShieldMinusIcon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors cursor-not-allowed" />
+            <p className="has-tooltip">
+              <ShieldMinusIcon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors cursor-not-allowed" />
+              <span className="tooltip">Private Source</span>
+            </p>
           )}
           <Link href={href} target="_blank">
             <Link2Icon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
