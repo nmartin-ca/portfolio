@@ -40,6 +40,13 @@ export const tech: Item[] = [
     proficiency: 5,
   },
   {
+    title: "React.js",
+    description:
+     "Althought I prefer Next.js, I'm also proficient with React.js and can build performant and organized web applications.",
+     href: "https://reactjs.org/",
+     proficiency: 4,
+  },
+  {
     title: "TailwindCSS",
     description:
       "I'm proficient with TailwindCSS and can create beautiful, responsive designs. I try to use it for every frontend project I work on",
