@@ -1,4 +1,5 @@
 "use client"
+import { links } from "@/lib/lists"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
@@ -8,7 +9,6 @@ export function Navbar() {
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      return;
       // Don't trigger if any input elements are focused or if event target is an input
       if (
         document.activeElement?.tagName === "INPUT" ||
@@ -22,8 +22,8 @@ export function Navbar() {
         case "h":
           router.push("/")
           break
-        case "b":
-          router.push("/blog")
+        case "r":
+          router.push("/resume")
           break
         case "p":
           router.push("/projects")
@@ -45,11 +45,11 @@ export function Navbar() {
           [h] home
         </Link>
         <Link
-          href="/blog"
+          href="/resume"
           prefetch={true}
           className="hover:text-accent transition-colors duration-200"
         >
-          [b] blog
+          [r] resume
         </Link>
         <Link
           href="/projects"

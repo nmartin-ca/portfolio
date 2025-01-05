@@ -45,7 +45,7 @@ export default function RootLayout({
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
         <div className="max-w-4xl mx-auto px-4 py-8">
-          {/* <Navbar /> */}
+          <Navbar />
           {children}
         </div>
       </body>
