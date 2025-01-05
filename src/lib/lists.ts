@@ -28,101 +28,67 @@ export const tech: Item[] = [
   {
     title: "TypeScript",
     description:
-      "TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.",
+      "I'm proficient with TypeScript and can write clean, maintainable code. I use it for (almost) every project I work on",
     href: "https://www.typescriptlang.org/",
-    proficiency: {
-      level: 5,
-      description:
-        "I'm proficient with TypeScript and can write clean, maintainable code.",
-    },
+    proficiency: 5,
   },
   {
     title: "Next.js",
     description:
-      "Next.js is a React framework for server-side rendering and static site generation.",
+      "I'm proficient with Next.js and can build fast, SEO-friendly websites. I try to use it for every frontend project I work on, but I am also comfortable with plain React",
     href: "https://nextjs.org/",
-    proficiency: {
-      level: 5,
-      description:
-        "I'm proficient with Next.js and can build fast, SEO-friendly websites.",
-    },
+    proficiency: 5,
   },
   {
     title: "TailwindCSS",
     description:
-      "TailwindCSS is a utility-first CSS framework for rapidly building custom designs.",
+      "I'm proficient with TailwindCSS and can create beautiful, responsive designs. I try to use it for every frontend project I work on",
     href: "https://tailwindcss.com/",
-    proficiency: {
-      level: 5,
-      description:
-        "I'm proficient with TailwindCSS and can create beautiful, responsive designs.",
-    },
+    proficiency: 5,
   },
   {
     title: "Git",
     description:
-      "Git is a distributed version control system for tracking changes in source code during software development.",
+      "I'm proficient with Git and can manage my codebase effectively.",
     href: "https://git-scm.com/",
-    proficiency: {
-      level: 5,
-      description:
-        "I'm proficient with Git and can manage my codebase effectively.",
-    },
+    proficiency: 5,
   },
   {
     title: "PostgreSQL",
     description:
-      "PostgreSQL is a powerful, open-source object-relational database system.",
+      "I'm familiar with PostgreSQL and can efficiently manage my database. I use it for my personal projects and for my work projects that require a database",
     href: "https://www.postgresql.org/",
-    proficiency: {
-      level: 4,
-      description:
-        "I'm familiar with PostgreSQL and can efficiently manage my database. I use it for my personal projects and for my work projects.",
-    },
+    proficiency: 4,
   },
   {
     title: "Docker",
     description:
-      "Docker is a platform for developing, shipping, and running applications.",
+      "I'm familiar with Docker and can efficiently manage my application deployments. I try to use it whenever possible for my work projects.",
     href: "https://www.docker.com/",
-    proficiency: {
-      level: 4,
-      description:
-        "I'm familiar with Docker and can efficiently manage my application deployments. I use it whenever possible for my work projects.",
-    },
+    proficiency: 4,
   },
   {
     title: "Linux",
     description:
-      "Linux is a family of open-source Unix-like operating systems.",
+      "I'm proficient with Linux and can manage my server efficiently. I dual-boot with Windows and use it for my personal projects and for my work projects.",
     href: "https://en.wikipedia.org/wiki/Linux",
-    proficiency: {
-      level: 5,
-      description:
-        "I'm proficient with Linux and can manage my server efficiently. I dual-boot with Windows and use it for my personal projects and for my work projects.",
-    },
+    proficiency: 5,
   },
   {
     title: "Vue",
     description:
-      "Vue is a progressive JavaScript framework for building user interfaces.",
+      "Vue is a progressive JavaScript framework for building user interfaces. \
+      I have some experience with Vue and can build simple web applications.",
     href: "https://vuejs.org/",
-    proficiency: {
-      level: 2,
-      description:
-        "I have some experience with Vue and can build simple web applications.",
-    },
+    proficiency: 2,
   },
   {
     title: "Astro",
     description:
-      "Astro is a new kind of static site generator for building websites.",
+      "Astro is a new kind of static site generator for building websites. \
+      I have little experience with Astro and can build simple websites.",
     href: "https://astro.build/",
-    proficiency: {
-      level: 1,
-      description:
-        "I have little experience with Astro and can build simple websites.",
-    },
+    proficiency: 1,
   },
 ]
 

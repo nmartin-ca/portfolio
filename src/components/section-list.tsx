@@ -7,10 +7,7 @@ export type Item = {
   role?: string
   period?: string
   description: string
-  proficiency?: {
-    level: 1 | 2 | 3 | 4 | 5
-    description: string
-  }
+  proficiency?: 1 | 2 | 3 | 4 | 5
 }
 
 type SectionListProps = {
