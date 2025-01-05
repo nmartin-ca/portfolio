@@ -13,7 +13,8 @@ export function Navbar() {
       if (
         document.activeElement?.tagName === "INPUT" ||
         document.activeElement?.tagName === "TEXTAREA" ||
-        event.target instanceof HTMLInputElement
+        event.target instanceof HTMLInputElement ||
+        event.ctrlKey || event.metaKey || event.altKey
       ) {
         return
       }
