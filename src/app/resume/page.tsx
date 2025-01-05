@@ -9,7 +9,7 @@ export default function ResumePage() {
 
   useEffect(() => {
     if (resumeLink) {
-      window.location.href = resumeLink.href
+      window.location.replace(resumeLink.href)
     }
   }, [resumeLink])
 
