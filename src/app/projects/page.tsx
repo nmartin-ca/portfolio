@@ -1,9 +1,7 @@
 import { ScrambleText } from "@/components/scramble-text"
 import { Project, ProjectCard } from "@/components/project-card"
 import { Metadata } from "next"
-
-const projects: Project[] = [
-]
+import { projects } from "@/lib/lists"
 
 export default function ProjectsPage() {
   return (
@@ -14,9 +12,7 @@ export default function ProjectsPage() {
       </h1>
 
       <p className="text-gray-400 mb-12 leading-relaxed">
-        here are some of the projects i&apos;ve worked on. i love building tools
-        that make developers&apos; lives easier and exploring new technologies
-        along the way.
+        Here are some of the projects I've worked on.
       </p>
 
       <div className="space-y-12">

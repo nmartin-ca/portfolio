@@ -1,10 +1,7 @@
+import { links } from "@/lib/lists"
 import Link from "next/link"
 
-const links = [
-  { title: "email", href: "mailto:contact@nmartin.ca" },
-  { title: "linkedin", href: "https://www.linkedin.com/in/nolan-k-martin" },
-  { title: "resume", href: "https://s3.nmartin.ca/Nolan%20Martin%20-%20Resume.pdf" },
-]
+
 
 export function LinksSection() {
   return (

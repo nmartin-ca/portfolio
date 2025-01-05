@@ -1,14 +1,15 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { CodeIcon, Link2Icon, ShieldMinusIcon } from "lucide-react"
 
 export type Project = {
-  title: string;
-  description: string;
-  role: string;
-  period?: string;
-  achievements: string[];
-  technologies: string[];
-  href: string;
+  title: string
+  shortDescription?: string
+  description: string
+  role: string
+  period?: string
+  achievements: string[]
+  technologies: string[]
+  href: string
 }
 
 type ProjectCardProps = {
@@ -32,14 +33,18 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div className="group border border-gray-800 p-6 transition-colors hover:border-accent/50">
-      <Link href={href} target="_blank">
-        <div className="flex justify-between items-start mb-4">
+      <div className="flex justify-between items-start mb-4">
+        <Link href={href} target="_blank">
           <h2 className="text-2xl font-bold text-white group-hover:text-accent transition-colors">
             {title}
           </h2>
-          <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
+        </Link>
+        <div className="flex justify-between gap-4">
+          <Link href={href} target="_blank">
+            <Link2Icon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
+          </Link>
         </div>
-      </Link>
+      </div>
 
       <p className="text-sm text-gray-400 mb-4">
         {role} {period && `(${period})`}
