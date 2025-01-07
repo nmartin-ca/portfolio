@@ -41,6 +41,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          src="https://a.nmartin.ca/script.js"
+          data-website-id="94d873bd-8340-4332-a2b0-2becfa47162f"
+        />
+      </head>
       <body
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
