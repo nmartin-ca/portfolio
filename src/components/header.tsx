@@ -1,6 +1,6 @@
 import { ScrambleText } from "@/components/scramble-text"
 import AgeFromDate from "@/lib/age"
-import { MapPin, Building2 } from "lucide-react"
+import { MapPin } from "lucide-react"
 
 export function Header() {
   return (

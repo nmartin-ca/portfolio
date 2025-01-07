@@ -56,7 +56,7 @@ export function SectionList({
       )}
 
       <div className="space-y-8">
-        {items.map((item, index) => (
+        {items.map((item) => (
           <div key={item.title} className="group">
             {item.href ? (
               <Link href={item.href} target="_blank">

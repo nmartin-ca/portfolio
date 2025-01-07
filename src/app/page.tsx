@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
-import { Item, SectionList } from "@/components/section-list"
-import { BlogSection } from "@/components/blog-section"
+import { SectionList } from "@/components/section-list"
 import { LinksSection } from "@/components/links-section"
 import { education, projects, tech, work } from "@/lib/lists"
 

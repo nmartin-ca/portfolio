@@ -1,5 +1,4 @@
 "use client"
-import { links } from "@/lib/lists"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
