@@ -4,7 +4,7 @@ import { Item } from "@/components/section-list"
 export const work: Item[] = [
   {
     title: "socl.gg",
-    role: "full-stack developer [contractor]",
+    role: "chief technology officer [contractor]",
     period: "feb 2024 - present",
     description:
       "Socl.gg is a platform for creating and sharing biolinks. We currently serve over 200 users.\
@@ -14,7 +14,7 @@ export const work: Item[] = [
   },
   {
     title: "Noratek Solutions",
-    role: "IT Assistant",
+    role: "it assistant [internship]",
     period: "july 2022 - aug 2022",
     description:
       "Noratek Solutions offers a broad portfolio of IT services for small and medium businesses as well as large corporate organizations.\
