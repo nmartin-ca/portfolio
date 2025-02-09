@@ -121,18 +121,30 @@ export const education: Item[] = [
 
 export const projects: Project[] = [
   {
-    title: "socl.gg",
-    role: "full-stack developer [contractor]",
-    period: "feb 2024 - present",
-    description: "biolink platform serving over 200 users",
-    href: "https://socl.gg",
+    title: "dromi.app",
+    period: "feb 2025 - present",
+    description: "open-source workspace where your tasks and ideas unite effortlessly.",
+    href: "https://github.com/dromiapp/dromi",
     achievements: [
-      "Developed an API from scratch using Fastify for the platform, which allows users to create and share biolinks.",
-      "Implemented a custom authentication system using JSON Web Tokens (JWT) for user authentication.",
-      "Designed and implemented a custom database schema for the platform, which allows for efficient storage and retrieval of biolinks.",
+      "Developing a full-stack web application using TypeScript, Next.js, TailwindCSS, and ElysiaJS",
+      "Built an authentication system that follows The Copenhagen Book guidelines",
     ],
-    technologies: ["TypeScript", "Fastify", "Next.js", "Prisma", "PostgreSQL"],
+    technologies: ["TypeScript", "Next.js", "ElysiaJS", "TailwindCSS", "Turborepo"],
+    source: "https://github.com/dromiapp/dromi",
   },
+  // {
+  //   title: "socl.gg",
+  //   role: "full-stack developer [contractor]",
+  //   period: "feb 2024 - present",
+  //   description: "biolink platform serving over 200 users",
+  //   href: "https://socl.gg",
+  //   achievements: [
+  //     "Developed an API from scratch using Fastify for the platform, which allows users to create and share biolinks.",
+  //     "Implemented a custom authentication system using JSON Web Tokens (JWT) for user authentication.",
+  //     "Designed and implemented a custom database schema for the platform, which allows for efficient storage and retrieval of biolinks.",
+  //   ],
+  //   technologies: ["TypeScript", "Fastify", "Next.js", "Prisma", "PostgreSQL"],
+  // },
   {
     title: "personal website",
     period: "jan 2024 - present",
