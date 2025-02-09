@@ -81,22 +81,6 @@ export const tech: Item[] = [
     href: "https://en.wikipedia.org/wiki/Linux",
     proficiency: 5,
   },
-  {
-    title: "Vue",
-    description:
-      "Vue is a progressive JavaScript framework for building user interfaces. \
-      I have some experience with Vue and can build simple web applications.",
-    href: "https://vuejs.org/",
-    proficiency: 2,
-  },
-  {
-    title: "Astro",
-    description:
-      "Astro is a new kind of static site generator for building websites. \
-      I have little experience with Astro and can build simple websites.",
-    href: "https://astro.build/",
-    proficiency: 1,
-  },
 ]
 
 export const education: Item[] = [
