@@ -135,8 +135,7 @@ export const projects: Project[] = [
   },
   {
     title: "personal website",
-    role: "developer",
-    period: "2024 - present",
+    period: "jan 2024 - present",
     description: "The site you're looking at right now",
     href: "https://nmartin.ca",
     achievements: [

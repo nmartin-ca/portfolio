@@ -5,7 +5,6 @@ export type Project = {
   title: string
   shortDescription?: string
   description: string
-  role: string
   period?: string
   source?: string
   achievements: string[]
