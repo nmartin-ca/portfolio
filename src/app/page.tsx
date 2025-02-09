@@ -8,17 +8,18 @@ export default function HomePage() {
     <>
       <Header />
       <SectionList title="education" items={education} />
-      <SectionList
-        title="tech stack"
-        items={tech}
-        description="This is a list of the technologies I know, with my proficiency level next to them"
-      />
+
       <SectionList title="work" items={work} />
       <SectionList
         title="projects"
         items={projects}
         viewAllHref="/projects"
         viewAllText="all projects"
+      />
+      <SectionList
+        title="tech stack"
+        items={tech}
+        description="This is a list of the technologies I know, with my proficiency level next to them"
       />
       {/* <BlogSection /> Currently disabled due to cf pages not supporting ssr (easily) */}
       <LinksSection />
