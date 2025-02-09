@@ -15,7 +15,6 @@ export type Project = {
 type ProjectCardProps = {
   title: string
   description: string
-  role: string
   period?: string
   source?: string
   achievements: string[]
@@ -26,7 +25,6 @@ type ProjectCardProps = {
 export function ProjectCard({
   title,
   description,
-  role,
   period,
   source,
   achievements,
@@ -60,10 +58,6 @@ export function ProjectCard({
           </Link>
         </div>
       </div>
-
-      <p className="text-sm text-gray-400 mb-4">
-        {role} {period && `(${period})`}
-      </p>
 
       <p className="text-gray-300 mb-6">{description}</p>
 
