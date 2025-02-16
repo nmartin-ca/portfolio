@@ -4,7 +4,7 @@ import { Item } from "@/components/section-list"
 export const work: Item[] = [
   {
     title: "socl.gg",
-    role: "chief technology officer [contractor]",
+    role: "lead full-stack developer [contractor]",
     period: "feb 2024 - present",
     description:
       "Socl.gg is a platform for creating and sharing biolinks. We currently serve over 200 users.\
