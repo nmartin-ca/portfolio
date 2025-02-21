@@ -1,16 +1,10 @@
 import Link from "next/link"
-import { CodeIcon, Link2Icon, ShieldMinusIcon } from "lucide-react"
-
-export type Project = {
-  title: string
-  shortDescription?: string
-  description: string
-  period?: string
-  source?: string
-  achievements: string[]
-  technologies: string[]
-  href: string
-}
+import {
+  ArrowUpRight,
+  CodeIcon,
+  Link2Icon,
+  ShieldMinusIcon,
+} from "lucide-react"
 
 type ProjectCardProps = {
   title: string
@@ -39,6 +33,7 @@ export function ProjectCard({
             {title}
           </h2>
         </Link>
+
         <div className="flex justify-between gap-4">
           {source ? (
             <p className="has-tooltip">
@@ -65,8 +60,14 @@ export function ProjectCard({
         <div>
           <h3 className="text-white font-semibold mb-2">achievements</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-400">
-            {achievements.map((achievement, index) => (
-              <li key={index}>{achievement}</li>
+            {achievements.map((achievement) => (
+              <li
+                key={`${title}-${achievement}-${achievements.indexOf(
+                  achievement
+                )}`}
+              >
+                {achievement}
+              </li>
             ))}
           </ul>
         </div>

@@ -1,4 +1,4 @@
-import { type MDXFileData } from "@/lib/blog"
+import type { MDXFileData } from "@/lib/blog"
 import Link from "next/link"
 
 type PostItemProps = {

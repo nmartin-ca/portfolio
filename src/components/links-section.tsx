@@ -1,7 +1,11 @@
-import { links } from "@/lib/lists"
 import Link from "next/link"
+import { basicInfo } from "@/lib/data"
 
-
+const links = [
+  { title: "email", href: `mailto:${basicInfo.email}` },
+  { title: "github", href: basicInfo.github },
+  { title: "linkedin", href: basicInfo.linkedin },
+]
 
 export function LinksSection() {
   return (
@@ -12,8 +16,9 @@ export function LinksSection() {
       <div className="flex flex-wrap gap-4 text-sm">
         {links.map((link, index) => (
           <Link
-            key={index}
+            key={`${link.title}-${index}`}
             href={link.href}
+            target="_blank"
             className="text-gray-400 hover:text-accent transition-colors duration-200"
           >
             {link.title}

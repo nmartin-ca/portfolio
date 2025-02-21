@@ -1,7 +1,5 @@
 import { ImageResponse } from "next/og"
 
-export const runtime = 'edge';
-
 async function loadGoogleFont(font: string, text: string) {
   const url = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(
     text
@@ -21,7 +19,7 @@ async function loadGoogleFont(font: string, text: string) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const title = searchParams.get("title") ?? "nmartin's blog"
+  const title = searchParams.get("title") ?? "nolan's blog"
 
   return new ImageResponse(
     (
@@ -33,7 +31,7 @@ export async function GET(request: Request) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#101010",
+          backgroundColor: "#111",
           fontFamily: "Geist Mono",
           padding: "40px",
           position: "relative",
@@ -49,7 +47,7 @@ export async function GET(request: Request) {
         >
           <span
             style={{
-              color: "#10b981",
+              color: "#ff6b35",
               fontSize: 48,
               flexShrink: 0,
             }}

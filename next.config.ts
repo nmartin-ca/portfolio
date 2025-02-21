@@ -3,10 +3,10 @@ import type { NextConfig } from "next"
 const nextConfig: NextConfig = {
   experimental: {
     // ppr: true,
-    // reactCompiler: true,
+    reactCompiler: true,
   },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

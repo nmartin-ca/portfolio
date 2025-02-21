@@ -21,17 +21,20 @@ type SectionListProps = {
 function ProficiencyStars({ item }: { item: Item }) {
   return (
     <span className="flex items-center cursor-help">
-      {[...Array(5)].map((_, i) => (
-        <StarIcon
-          key={`${item.title}-proficiency-${i}`}
-          size={14}
-          className={
-            i < item.proficiency!
-              ? "fill-accent stroke-accent"
-              : "stroke-gray-600"
-          }
-        />
-      ))}
+      {[...Array(5)].map((_, i) => {
+        if (!item.proficiency) return null
+        return (
+          <StarIcon
+            key={`${item.title}-proficiency-${i}`}
+            size={14}
+            className={
+              i < item.proficiency
+                ? "fill-accent stroke-accent"
+                : "stroke-gray-600"
+            }
+          />
+        )
+      })}
     </span>
   )
 }
@@ -44,7 +47,6 @@ export function SectionList({
   viewAllText,
 }: SectionListProps) {
   const isLongList = items.length > 3
-
   return (
     <section className="mb-16 animate-fade-in-up">
       <h2 className="text-2xl font-bold mb-6 flex items-center text-white">

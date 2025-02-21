@@ -1,7 +1,7 @@
 import { ScrambleText } from "@/components/scramble-text"
 import { ProjectCard } from "@/components/project-card"
-import { Metadata } from "next"
-import { projects } from "@/lib/lists"
+import type { Metadata } from "next"
+import { projects, basicInfo } from "@/lib/data"
 
 export default function ProjectsPage() {
   return (
@@ -12,7 +12,7 @@ export default function ProjectsPage() {
       </h1>
 
       <p className="text-gray-400 mb-12 leading-relaxed">
-        Here are some of the projects I&apos;ve worked on.
+        here are some of the projects i&apos;ve worked on.
       </p>
 
       <div className="space-y-12">
@@ -26,11 +26,11 @@ export default function ProjectsPage() {
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Some of the projects I&apos;ve worked on.",
+  description: "Some of the projects I've worked on.",
   openGraph: {
     images: [
       {
-        url: "https://nmartin.ca/og/home?title=projects",
+        url: "https://www.nmartin.ca/og/home?title=projects",
       },
     ],
   },

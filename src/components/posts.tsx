@@ -41,7 +41,8 @@ export function Posts({ posts }: PostsProps) {
       } else if (e.key === "Escape" && isSearching) {
         setIsSearching(false)
         setSearchQuery("")
-        if(document.activeElement instanceof HTMLElement) document.activeElement.blur()
+        document.activeElement instanceof HTMLElement &&
+          document.activeElement.blur()
       } else if (
         isSearching &&
         (((e.ctrlKey || e.metaKey) && (e.key === "j" || e.key === "k")) ||

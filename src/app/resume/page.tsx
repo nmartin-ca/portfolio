@@ -1,15 +1,15 @@
 "use client"
 
-import { links } from "@/lib/lists"
+import { basicInfo } from "@/lib/data"
 import Link from "next/link"
 import { useEffect } from "react"
 
 export default function ResumePage() {
-  const resumeLink = links.find(link => link.title === "resume")
+  const resumeLink = basicInfo.resume
 
   useEffect(() => {
     if (resumeLink) {
-      window.location.replace(resumeLink.href)
+      window.location.replace(resumeLink)
     }
   }, [resumeLink])
 
@@ -35,7 +35,7 @@ export default function ResumePage() {
         {
           resumeLink ? (
             <Link
-              href={resumeLink.href}
+              href={resumeLink}
               className="inline-block text-gray-400 hover:text-accent transition-colors"
             >
               not loading? click here

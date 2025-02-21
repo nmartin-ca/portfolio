@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { Navbar } from "../components/navbar"
+import { basicInfo } from "@/lib/data"
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -10,24 +11,24 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nmartin.ca"),
+  metadataBase: new URL("https://www.nmartin.ca"),
   title: {
-    default: "Nolan Martin",
-    template: "%s | Nolan Martin",
+    default: `${basicInfo.name}`,
+    template: `%s | ${basicInfo.name}`,
   },
-  description: "Self-taught developer, sysadmin, and problem solver.",
+  description: "Self-taught developer / sysadmin from Canada.",
   openGraph: {
-    title: "Nolan Martin",
-    description: "Self-taught developer, sysadmin, and problem solver.",
-    url: "https://nmartin.ca",
-    siteName: "Nolan Martin",
-    locale: "en_CA",
+    title: `${basicInfo.name}`,
+    description: "Self-taught developer / sysadmin from Canada.",
+    url: "https://www.nmartin.ca",
+    siteName: `${basicInfo.name}`,
+    locale: "en_US",
     type: "website",
-    images: ["https://nmartin.ca/og/home"],
+    images: ["https://www.nmartin.ca/og/home"],
   },
   robots: {
     index: true,
-    follow: false,
+    follow: true,
     "max-video-preview": -1,
     "max-image-preview": "large",
     "max-snippet": -1,
@@ -41,13 +42,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          defer
-          src="https://a.nmartin.ca/script.js"
-          data-website-id="060810ca-b696-4cf1-b248-5ed87bf3b3a8"
-        />
-      </head>
       <body
         className={`${geistMono.variable} antialiased min-h-screen font-mono`}
       >
