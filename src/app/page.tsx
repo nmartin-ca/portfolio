@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { SectionList } from "@/components/section-list"
 import { LinksSection } from "@/components/links-section"
-import { education, projects, tech, work } from "@/lib/lists"
+import { education, projects, tech, work } from "@/lib/data"
 
 export default function HomePage() {
   return (

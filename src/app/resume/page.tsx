@@ -1,6 +1,6 @@
 "use client"
 
-import { links } from "@/lib/lists"
+import { links } from "@/lib/data"
 import Link from "next/link"
 import { useEffect } from "react"
 

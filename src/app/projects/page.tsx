@@ -1,7 +1,7 @@
 import { ScrambleText } from "@/components/scramble-text"
 import { ProjectCard } from "@/components/project-card"
 import { Metadata } from "next"
-import { projects } from "@/lib/lists"
+import { projects } from "@/lib/data"
 
 export default function ProjectsPage() {
   return (
