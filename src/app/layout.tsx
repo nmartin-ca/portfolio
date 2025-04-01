@@ -45,7 +45,7 @@ export default function RootLayout({
         <script
           defer
           src="https://a.nmartin.ca/script.js"
-          data-website-id="060810ca-b696-4cf1-b248-5ed87bf3b3a8"
+          data-website-id="b6184a60-7bc1-487c-a8b9-d720237cbffa"
         />
       </head>
       <body
