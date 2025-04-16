@@ -7,9 +7,8 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <SectionList title="education" items={education} />
-
       <SectionList title="work" items={work} />
+      <SectionList title="education" items={education} />
       <SectionList
         title="projects"
         items={projects}
