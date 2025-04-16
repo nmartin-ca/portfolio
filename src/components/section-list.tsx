@@ -26,6 +26,7 @@ function ProficiencyStars({ item }: { item: Item }) {
           key={`${item.title}-proficiency-${i}`}
           size={14}
           className={
+            // biome-ignore lint/style/noNonNullAssertion: We only run this if the proficiency is defined
             i < item.proficiency!
               ? "fill-accent stroke-accent"
               : "stroke-gray-600"

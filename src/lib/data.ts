@@ -1,5 +1,5 @@
-import { Project } from "@/components/project-card"
-import { Item } from "@/components/section-list"
+import type { Project } from "@/components/project-card"
+import type { Item } from "@/components/section-list"
 
 export const work: Item[] = [
   {

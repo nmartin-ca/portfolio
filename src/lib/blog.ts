@@ -1,5 +1,5 @@
-import fs from "fs"
-import path from "path"
+import fs from "node:fs"
+import path from "node:path"
 
 export type Metadata = {
   title: string
@@ -42,14 +42,14 @@ function parseFrontmatter(fileContent: string): FrontmatterParseResult {
   const frontmatterLines = frontmatter.trim().split("\n")
   const metadata: Partial<Metadata> = {}
 
-  frontmatterLines.forEach((line) => {
+  for (const line of frontmatterLines) {
     const [key, ...values] = line.split(": ")
     let value = values.join(": ").trim()
     value = value.replace(/^['"](.*)['"]$/, "$1") // Remove quotes
     if (key && value) {
       metadata[key.trim() as keyof Metadata] = value
     }
-  })
+  }
 
   return { metadata: metadata as Metadata, content }
 }

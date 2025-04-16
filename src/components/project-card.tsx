@@ -66,7 +66,7 @@ export function ProjectCard({
           <h3 className="text-white font-semibold mb-2">achievements</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-400">
             {achievements.map((achievement, index) => (
-              <li key={index}>{achievement}</li>
+              <li key={`achievement-${achievement}`}>{achievement}</li>
             ))}
           </ul>
         </div>

@@ -20,6 +20,7 @@ export function Posts({ posts }: PostsProps) {
     item.metadata.title.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: We want to run this effect when the searchQuery changes
   useEffect(() => {
     setSelectedIndex(0)
   }, [searchQuery])
@@ -33,6 +34,7 @@ export function Posts({ posts }: PostsProps) {
     }
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "/" && !isSearching) {
@@ -41,7 +43,8 @@ export function Posts({ posts }: PostsProps) {
       } else if (e.key === "Escape" && isSearching) {
         setIsSearching(false)
         setSearchQuery("")
-        if(document.activeElement instanceof HTMLElement) document.activeElement.blur()
+        if (document.activeElement instanceof HTMLElement)
+          document.activeElement.blur()
       } else if (
         isSearching &&
         (((e.ctrlKey || e.metaKey) && (e.key === "j" || e.key === "k")) ||
@@ -84,7 +87,7 @@ export function Posts({ posts }: PostsProps) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="flex-1 bg-transparent outline-none"
-              autoFocus
+              // autoFocus
               placeholder="search posts..."
               aria-label="Search posts"
               role="searchbox"
