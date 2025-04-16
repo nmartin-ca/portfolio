@@ -13,6 +13,16 @@ export const work: Item[] = [
     href: "https://socl.gg",
   },
   {
+    title: "Confidential Client",
+    role: "Software Developer (Contract)",
+    period: "jun. 2024 - dec. 2024",
+    description:
+      "Developed a multi-account management platform consolidating user access and communication workflows for a SaaS client.\
+      Designed and implemented role-based access control features to securely limit employee permissions within client organizations.\
+      Engineered a custom real-time event notification system and integrated third-party WebSocket services to provide immediate platform updates.\
+      Maintained strict confidentiality in accordance with contractual agreements.",
+  },
+  {
     title: "Noratek Solutions",
     role: "it assistant [internship]",
     period: "jul. 2022 - aug. 2022",
