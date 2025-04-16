@@ -114,18 +114,18 @@ export const education: Item[] = [
 ]
 
 export const projects: Project[] = [
-  {
-    title: "dromi.app",
-    period: "feb 2025 - present",
-    description: "open-source workspace where your tasks and ideas unite effortlessly.",
-    href: "https://github.com/dromiapp/dromi",
-    achievements: [
-      "Developing a full-stack web application using TypeScript, Next.js, TailwindCSS, and ElysiaJS",
-      "Built an authentication system that follows The Copenhagen Book guidelines",
-    ],
-    technologies: ["TypeScript", "Next.js", "ElysiaJS", "TailwindCSS", "Turborepo"],
-    source: "https://github.com/dromiapp/dromi",
-  },
+  // {
+  //   title: "dromi.app",
+  //   period: "feb 2025 - present",
+  //   description: "open-source workspace where your tasks and ideas unite effortlessly.",
+  //   href: "https://github.com/dromiapp/dromi",
+  //   achievements: [
+  //     "Developing a full-stack web application using TypeScript, Next.js, TailwindCSS, and ElysiaJS",
+  //     "Built an authentication system that follows The Copenhagen Book guidelines",
+  //   ],
+  //   technologies: ["TypeScript", "Next.js", "ElysiaJS", "TailwindCSS", "Turborepo"],
+  //   source: "https://github.com/dromiapp/dromi",
+  // },
   // {
   //   title: "socl.gg",
   //   role: "full-stack developer [contractor]",
