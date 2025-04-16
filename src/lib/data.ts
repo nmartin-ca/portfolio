@@ -4,8 +4,8 @@ import type { Item } from "@/components/section-list"
 export const work: Item[] = [
   {
     title: "Soclgg LLC",
-    role: "full-stack developer [contractor]",
-    period: "sep 2023 - present",
+    role: "full-stack developer [contract]",
+    period: "sep. 2023 - present",
     description:
       "Socl.gg is a platform for creating and sharing biolinks. We currently serve over 200 users.\
       I work on the backend & frontend of the platform, written in TypeScript, using Next.js, Prisma, and PostgreSQL.\
@@ -15,7 +15,7 @@ export const work: Item[] = [
   {
     title: "Noratek Solutions",
     role: "it assistant [internship]",
-    period: "july 2022 - aug 2022",
+    period: "jul. 2022 - aug. 2022",
     description:
       "Noratek Solutions offers a broad portfolio of IT services for small and medium businesses as well as large corporate organizations.\
     As an IT Assistant, I answered help-desk tickets and provided remote technical support for over 100 clients. I developed PowerShell scripts\
@@ -42,9 +42,9 @@ export const tech: Item[] = [
   {
     title: "React.js",
     description:
-     "Althought I prefer Next.js, I'm also proficient with React.js and can build performant and organized web applications.",
-     href: "https://reactjs.org/",
-     proficiency: 4,
+      "Althought I prefer Next.js, I'm also proficient with React.js and can build performant and organized web applications.",
+    href: "https://reactjs.org/",
+    proficiency: 4,
   },
   {
     title: "TailwindCSS",
