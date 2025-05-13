@@ -5,7 +5,7 @@ export const work: Item[] = [
   {
     title: "Soclgg LLC",
     role: "full-stack developer [contract]",
-    period: "sep. 2023 - present",
+    period: "sep. 2023 - may. 2025",
     description:
       "Socl.gg is a platform for creating and sharing biolinks. We currently serve over 200 users.\
       I work on the backend & frontend of the platform, written in TypeScript, using Next.js, Prisma, and PostgreSQL.\
