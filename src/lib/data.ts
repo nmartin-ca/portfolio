@@ -14,7 +14,7 @@ export const work: Item[] = [
   },
   {
     title: "Confidential Client",
-    role: "Software Developer (Contract)",
+    role: "software developer [contract]",
     period: "jun. 2024 - dec. 2024",
     description:
       "Developed a multi-account management platform consolidating user access and communication workflows for a SaaS client.\
