@@ -57,16 +57,16 @@ export function ProjectCard({
             loop
             muted
             playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
+            className="pointer-events-none mx-auto h-48 sm:h-56 w-full object-cover object-top" // needed because random black line at bottom of video
           />
         )}
         {image && (
           <Image
             src={image}
             alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
+            width={1920}
+            height={1080}
+            className="w-full overflow-hidden object-cover object-top"
             unoptimized
             loading="lazy"
           />

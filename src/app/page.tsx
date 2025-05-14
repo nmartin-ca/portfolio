@@ -157,7 +157,7 @@ export default function Page() {
 							</div>
 						</div>
 					</BlurFade>
-					<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+					<div className={`grid gap-4 mx-auto w-full ${DATA.projects.length <= 2 ? 'max-w-3xl grid-cols-1' : 'max-w-[800px] grid-cols-1 sm:grid-cols-2'}`}>
 						{DATA.projects.map((project, id) => (
 							<BlurFade
 								key={project.title}

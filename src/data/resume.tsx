@@ -220,7 +220,7 @@ export const DATA = {
 					icon: <Icons.globe className="size-3" />,
 				},
 			],
-			image: "",
+			image: "https://s3.nmartin.ca/assets/portfolio@1x.png",
 			video: "",
 		},
 	],
