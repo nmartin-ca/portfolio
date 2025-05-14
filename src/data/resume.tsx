@@ -152,7 +152,7 @@ export const DATA = {
 		{
 			company: "Noratek Solutions Inc.",
 			href: "https://www.noratek.com/",
-			badges: [],
+			badges: ["Internship"],
 			location: "British Columbia, Canada",
 			title: "IT Assistant",
 			logoUrl: "https://s3.nmartin.ca/assets/noratek.png",
