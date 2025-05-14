@@ -147,17 +147,16 @@ export default function Page() {
 									My Projects
 								</div>
 								<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-									Check out my latest work
+									Check out my work
 								</h2>
 								<p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 									I&apos;ve worked on a variety of projects, from simple
-									websites to complex web applications. Here are a few of my
-									favorites.
+									websites to complex web applications. Here are a few of them.
 								</p>
 							</div>
 						</div>
 					</BlurFade>
-					<div className={`grid gap-4 mx-auto w-full ${DATA.projects.length <= 2 ? 'max-w-3xl grid-cols-1' : 'max-w-[800px] grid-cols-1 sm:grid-cols-2'}`}>
+					<div className={`grid gap-4 mx-auto w-full ${DATA.projects.length > 3 ? 'max-w-[800px] grid-cols-1 sm:grid-cols-2' : 'max-w-3xl grid-cols-1'}`}>
 						{DATA.projects.map((project, id) => (
 							<BlurFade
 								key={project.title}
