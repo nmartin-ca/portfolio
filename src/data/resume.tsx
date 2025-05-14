@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, MailIcon, NotebookIcon } from "lucide-react";
+import { FileTextIcon, HomeIcon, MailIcon, NotebookIcon } from "lucide-react";
 import {
 	ReactLight,
 	ReactDark,
@@ -52,8 +52,9 @@ export const DATA = {
 	],
 	navbar: [
 		{ href: "/", icon: HomeIcon, label: "Home" },
-		{ href: "mailto:contact@nmartin.ca", icon: MailIcon, label: "Contact" },
 		{ href: "/blog", icon: NotebookIcon, label: "Blog" },
+		// { href: "/projects", icon: NotebookIcon, label: "Projects" },
+		{ href: "https://s3.nmartin.ca/Nolan Martin - Resume.pdf", icon: FileTextIcon, label: "Resume" },
 	],
 	contact: {
 		email: "hello@nmartin.ca",
@@ -73,12 +74,11 @@ export const DATA = {
 
 				navbar: true,
 			},
-			email: {
-				name: "Send Email",
-				url: "#",
-				icon: Icons.email,
-
-				navbar: false,
+			Email: {
+				name: "Email",
+				url: "mailto:contact@nmartin.ca",
+				icon: MailIcon,
+				navbar: true,
 			},
 		},
 	},
