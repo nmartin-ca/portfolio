@@ -35,17 +35,19 @@ export default function Page() {
 						<BlurFade delay={BLUR_FADE_DELAY}>
 							<div className="relative">
 								<Avatar className="size-24 border">
-									<AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+									<AvatarImage alt={DATA.name} src={DATA.avatarUrl}/>
 									<AvatarFallback>{DATA.initials}</AvatarFallback>
 								</Avatar>
 								{/* Overlay the opentowork image in the bottom right corner */}
 								<div className="absolute bottom-0 right-0 size-24 transform pointer-events-none">
 									<Image
-										src="/opentowork.png"
+										src="https://s3.nmartin.ca/assets/opentowork.png"
 										alt="#opentowork"
 										width={512}
 										height={512}
 										className="rounded-full w-full h-full object-cover"
+										unoptimized
+										loading="lazy"
 									/>
 								</div>
 							</div>

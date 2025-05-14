@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon, MailIcon, NotebookIcon } from "lucide-react";
 import {
 	ReactLight,
 	ReactDark,
@@ -23,7 +23,7 @@ export const DATA = {
 	description: "Self-taught developer, sysadmin, and problem solver.",
 	summary:
 		"I am a self-taught developer with a passion for building things the right way. I have experience in a couple of programming languages and many frameworks, and I am always looking to learn new things. I am currently focused on building web applications using React, Next.js, and Typescript.",
-	avatarUrl: "/me.png",
+	avatarUrl: "https://s3.nmartin.ca/assets/avatar.png",
 	skills: [
 		{
 			icon: Icons.react,
@@ -52,6 +52,7 @@ export const DATA = {
 	],
 	navbar: [
 		{ href: "/", icon: HomeIcon, label: "Home" },
+		{ href: "mailto:contact@nmartin.ca", icon: MailIcon, label: "Contact" },
 		{ href: "/blog", icon: NotebookIcon, label: "Blog" },
 	],
 	contact: {
@@ -89,7 +90,7 @@ export const DATA = {
 			badges: [],
 			location: "Remote, USA",
 			title: "Fullstack Developer",
-			logoUrl: "/socl.svg",
+			logoUrl: "https://s3.nmartin.ca/assets/socl.svg",
 			start: "Sep 2023",
 			end: "May 2025",
 			description: (
@@ -123,7 +124,7 @@ export const DATA = {
 			badges: [],
 			location: "Remote, USA",
 			title: "Software Engineer",
-			logoUrl: "/confidential-client.png",
+			logoUrl: "https://s3.nmartin.ca/assets/confidential-client.png",
 			start: "Jun 2024",
 			end: "Dec 2024",
 			description: (
@@ -154,7 +155,7 @@ export const DATA = {
 			badges: [],
 			location: "British Columbia, Canada",
 			title: "IT Assistant",
-			logoUrl: "/noratek.png",
+			logoUrl: "https://s3.nmartin.ca/assets/noratek.png",
 			start: "Jul 2022",
 			end: "Aug 2022",
 			description: (
@@ -184,7 +185,7 @@ export const DATA = {
 			school: "College of New Caledonia",
 			href: "https://cnc.bc.ca",
 			degree: "Certificate, Computer Network Electronics Technician",
-			logoUrl: "/cnc.png",
+			logoUrl: "https://s3.nmartin.ca/assets/cnc.png",
 			start: "Sep 2022",
 			end: "Jun 2023",
 		},
@@ -192,7 +193,7 @@ export const DATA = {
 			school: "High School",
 			href: "",
 			degree: "Diploma, High School",
-			logoUrl: "/high-school.png",
+			logoUrl: "https://s3.nmartin.ca/assets/high-school.png",
 			start: "Sep 2018",
 			end: "Jun 2022",
 		},
