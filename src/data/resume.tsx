@@ -223,6 +223,33 @@ export const DATA = {
 			image: "https://s3.nmartin.ca/assets/portfolio@1x.png",
 			video: "",
 		},
+		{
+			title: "socl.gg",
+			href: "https://socl.gg",
+			dates: "Sep 2023 - May 2025",
+			active: false,
+			description:
+				"Socl.gg is a platform for creating and sharing biolinks. \
+				While I was employed, we served over 200 active users, and I was working on \
+				the backend & frontend of the platform. This project required a lot of scalable and performant code.",
+			technologies: [
+				"Next.js",
+				"Typescript",
+				"PostgreSQL",
+				"Prisma",
+				"Redis",
+				"TailwindCSS",
+			],
+			links: [
+				{
+					type: "Website",
+					href: "https://socl.gg",
+					icon: <Icons.globe className="size-3" />,
+				},
+			],
+			image: "https://s3.nmartin.ca/assets/socl@1x.png",
+			video: "",
+		}
 	],
 	hackathons: [],
 } as const;
