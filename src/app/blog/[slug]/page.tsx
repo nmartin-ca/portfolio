@@ -1,92 +1,112 @@
-import { notFound } from "next/navigation"
-import { MDX } from "./mdx"
-import { getPostBySlug } from "@/lib/blog"
-import { basicInfo } from "@/lib/data"
+import { getBlogPosts, getPost } from "@/data/blog";
+import { DATA } from "@/data/resume";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
-type PageProps = {
-  params: Promise<{ slug: string }>
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps) {
-  const slug = (await params).slug
-  const post = getPostBySlug(slug)
-  if (!post) {
-    return
-  }
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}): Promise<Metadata | undefined> {
+  const post = await getPost(params.slug);
 
-  const publishedTime = formatDate(post.metadata.date)
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
+  const ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
 
   return {
-    title: post.metadata.title,
-    description: post.metadata.description,
+    title,
+    description,
     openGraph: {
-      title: post.metadata.title,
-      description: post.metadata.description,
-      publishedTime,
+      title,
+      description,
       type: "article",
-      url: `https://www.nmartin.ca/blog/${post.slug}`,
+      publishedTime,
+      url: `${DATA.url}/blog/${post.slug}`,
       images: [
         {
-          url: `https://www.nmartin.ca/og/blog?title=${post.metadata.title}`,
+          url: ogImage,
         },
       ],
     },
-  }
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
-export default async function Post({ params }: PageProps) {
-  const slug = (await params).slug
-  const post = getPostBySlug(slug)
+export default async function Blog({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}) {
+  const post = await getPost(params.slug);
+
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
-    <section className="animate-fade-in-up">
+    <section id="blog">
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: We want to set the innerHTML here
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: We want to render HTML
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: post.metadata.title,
-            datePublished: post.metadata.date,
-            dateModified: post.metadata.date,
-            description: post.metadata.description,
-            image: `https://www.nmartin.ca/og/blog?title=${
-              post.metadata.title
-            }&top=${formatDate(post.metadata.date)}`,
-            url: `https://www.nmartin.ca/blog/${post.slug}`,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image
+              ? `${DATA.url}${post.metadata.image}`
+              : `${DATA.url}/og?title=${post.metadata.title}`,
+            url: `${DATA.url}/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: `${basicInfo.name}`,
+              name: DATA.name,
             },
           }),
         }}
       />
-
-      <h1 className="text-4xl font-bold mb-4 text-white">
-        <span className="text-accent mr-2">*</span>
+      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
         {post.metadata.title}
       </h1>
-
-      <div className="mb-8 flex items-center justify-between text-sm text-gray-400">
-        <span>{formatDate(post.metadata.date)}</span>
+      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+        <Suspense fallback={<p className="h-5" />}>
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {new Date(post.metadata.publishedAt).toLocaleString("en-us", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </p>
+        </Suspense>
       </div>
-
-      <article className="prose prose-invert max-w-none prose-headings:text-white prose-a:text-white hover:prose-a:underline">
-        <MDX source={post.content} />
-      </article>
+      <article
+        className="prose dark:prose-invert"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: We want to render HTML
+        dangerouslySetInnerHTML={{ __html: post.source }}
+      />
     </section>
-  )
-}
-
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
+  );
 }

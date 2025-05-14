@@ -1,58 +1,46 @@
-import { ScrambleText } from "@/components/scramble-text"
-import { PostsList } from "@/components/posts-list"
-import { getPosts } from "@/lib/blog"
-import { Metadata } from "next"
+import BlurFade from "@/components/magicui/blur-fade";
+import { getBlogPosts } from "@/data/blog";
+import Link from "next/link";
 
-const posts = getPosts().sort(
-  (a, b) =>
-    new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime()
-)
+export const metadata = {
+  title: "Blog",
+  description: "My thoughts on software development, life, and more.",
+};
+
+const BLUR_FADE_DELAY = 0.04;
 
 export default async function BlogPage() {
+  const posts = await getBlogPosts();
+
   return (
-    <main className="animate-fade-in-up relative">
-      <h1 className="text-4xl font-bold mb-8 text-white">
-        <span className="text-accent mr-2">*</span>
-        <ScrambleText text="blog" />
-      </h1>
-
-      <p className="hidden sm:block text-sm text-gray-400 mb-8">
-        press{" "}
-        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
-          /
-        </kbd>{" "}
-        to search • use{" "}
-        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
-          ctrl / ⌘ j
-        </kbd>{" "}
-        and{" "}
-        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
-          ctrl / ⌘ k
-        </kbd>{" "}
-        or{" "}
-        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
-          ↑
-        </kbd>{" "}
-        and{" "}
-        <kbd className="px-1 py-0.5 text-xs border border-gray-700 rounded">
-          ↓
-        </kbd>{" "}
-        to navigate
-      </p>
-
-      <PostsList posts={posts} />
-    </main>
-  )
-}
-
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "My thoughts on technology, programming, and more.",
-  openGraph: {
-    images: [
-      {
-        url: "https://www.nmartin.ca/og/home?title=blog",
-      },
-    ],
-  },
+    <section>
+      <BlurFade delay={BLUR_FADE_DELAY}>
+        <h1 className="font-medium text-2xl mb-8 tracking-tighter">blog</h1>
+      </BlurFade>
+      {posts
+        .sort((a, b) => {
+          if (
+            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
+          ) {
+            return -1;
+          }
+          return 1;
+        })
+        .map((post, id) => (
+          <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
+            <Link
+              className="flex flex-col space-y-1 mb-4"
+              href={`/blog/${post.slug}`}
+            >
+              <div className="w-full flex flex-col">
+                <p className="tracking-tight">{post.metadata.title}</p>
+                <p className="h-6 text-xs text-muted-foreground">
+                  {post.metadata.publishedAt}
+                </p>
+              </div>
+            </Link>
+          </BlurFade>
+        ))}
+    </section>
+  );
 }
