@@ -125,7 +125,7 @@ export default function Page() {
 							>
 								<Badge
 									key={`skill-${skill.label}`}
-									className="text-sm py-2 px-4 italic rounded-lg bg-primary-foreground text-primary hover:text-primary-foreground min-w-fit text-center flex items-center space-x-2 flex-1 justify-center"
+									className="text-sm py-2 px-4 italic rounded-lg bg-card text-card-foreground hover:text-primary-foreground min-w-fit text-center flex items-center space-x-2 flex-1 justify-center"
 								>
 									<div className="flex items-center justify-center object-contain w-4 h-4">
 										<skill.icon className="" />
