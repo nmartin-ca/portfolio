@@ -15,7 +15,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
 	return (
-		<main className="flex flex-col min-h-[100dvh] space-y-10">
+		<main className="flex flex-col min-h-dvh space-y-10">
 			<section id="hero">
 				<div className="mx-auto w-full max-w-2xl space-y-8">
 					<div className="gap-2 flex justify-between">
@@ -38,7 +38,6 @@ export default function Page() {
 									<AvatarImage alt={DATA.name} src={DATA.avatarUrl}/>
 									<AvatarFallback>{DATA.initials}</AvatarFallback>
 								</Avatar>
-								{/* Overlay the opentowork image in the bottom right corner */}
 								<div className="absolute bottom-0 right-0 size-24 transform pointer-events-none">
 									<Image
 										src="https://s3.nmartin.ca/assets/opentowork.png"
@@ -126,12 +125,12 @@ export default function Page() {
 							>
 								<Badge
 									key={`skill-${skill.label}`}
-									className="text-sm py-2 px-4 italic rounded-lg bg-primary-foreground/80 text-primary min-w-fit text-center flex items-center space-x-2 flex-1 justify-center"
+									className="text-sm py-2 px-4 italic rounded-lg bg-card text-card-foreground hover:text-primary-foreground min-w-fit text-center flex items-center space-x-2 flex-1 justify-center"
 								>
 									<div className="flex items-center justify-center object-contain w-4 h-4">
-										<skill.icon className="text-primary" />
+										<skill.icon className="" />
 									</div>
-									<span className="text-primary">{skill.label}</span>
+									<span className="">{skill.label}</span>
 								</Badge>
 							</BlurFade>
 						))}
