@@ -44,7 +44,12 @@ export const ResumeCard = ({
 			className="block cursor-pointer"
 			onClick={handleClick}
 		>
-			<Card className="flex">
+			<Card
+				className={cn(
+					"flex p-2",
+					// isExpanded ? "!rounded-tl-3xl !rounded-tr-3xl rounded-md" : "",
+				)}
+			>
 				<div className="flex-none">
 					<Avatar className="border size-12 m-auto bg-muted-background dark:bg-background">
 						<AvatarImage
@@ -55,41 +60,39 @@ export const ResumeCard = ({
 						<AvatarFallback>{altText[0]}</AvatarFallback>
 					</Avatar>
 				</div>
-				<div className="flex-grow ml-4 items-center flex-col group">
+				<div className="grow ml-4 items-center flex-col group">
 					<CardHeader>
-						<div className="flex items-center justify-between gap-x-2 text-base">
-							<h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none text-xs sm:text-sm">
-								{title}
-								{badges && (
-									<div className="inline-flex gap-x-1">
-										{badges.map((badge, index) => (
-											<Badge
-												variant="secondary"
-												className="align-middle text-xs"
-												key={`${badge}`}
-											>
-												{badge}
-											</Badge>
-										))}
-									</div>
+						<div className="flex items-end justify-between gap-x-2 text-base">
+							{/* Left */}
+							<div className="flex flex-col">
+								<div className="inline-flex items-center gap-x-1 font-semibold leading-none text-xs sm:text-sm">
+									<h3>{title}</h3>
+
+									{description && (
+										<p className="inline-flex font-normal transition-all duration-300 ease-out transform items-center text-muted-foreground group-hover:font-bold">
+											<span className="text-xs">details</span>
+											<ChevronRightIcon
+												className={cn(
+													"size-4 transition-all duration-300 ease-out",
+													isExpanded ? "rotate-90" : "rotate-0",
+												)}
+											/>
+										</p>
+									)}
+								</div>
+								{subtitle && (
+									<p className="font-sans text-xs text-muted-foreground mt-0.5">
+										{subtitle}
+									</p>
 								)}
-								{description && (
-									<span className="inline-flex font-normal transition-all duration-300 ease-out transform items-center gap-x-0.5 text-muted-foreground group-hover:font-bold">
-										<span className="text-[10px]">details</span>
-										<ChevronRightIcon
-											className={cn(
-												"size-4 transition-all duration-300 ease-out",
-												isExpanded ? "rotate-90" : "rotate-0",
-											)}
-										/>
-									</span>
-								)}
-							</h3>
-							<div className="text-xs sm:text-sm tabular-nums text-muted-foreground text-right">
-								{period}
+							</div>
+							{/* Right */}
+							<div className="flex flex-none items-center justify-end">
+								<p className="text-xs sm:text-sm tabular-nums text-muted-foreground">
+									{period}
+								</p>
 							</div>
 						</div>
-						{subtitle && <p className="font-sans text-xs text-muted-foreground mt-0.5">{subtitle}</p>}
 					</CardHeader>
 					{description && (
 						<motion.div
@@ -103,7 +106,7 @@ export const ResumeCard = ({
 								duration: 0.7,
 								ease: [0.16, 1, 0.3, 1],
 							}}
-							className="mt-2 text-xs sm:text-sm"
+							className="mt-2 -ml-4 leading-normal text-pretty text-xs sm:text-sm"
 						>
 							{description}
 						</motion.div>
