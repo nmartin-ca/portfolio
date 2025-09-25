@@ -1,0 +1,41 @@
+---
+title: "Confidential Client"
+publishedAt: "2025-09-23"
+summary: "Development of an account management platform for a SaaS client."
+images:
+  - "/images/projects/confidential-client/cover-01.webp"
+team:
+  - name: "Nolan Martin"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nolan-k-martin"
+---
+
+## Overview
+
+Development of an account management platform for a SaaS client.
+
+## Technologies Used
+
+- *Application*:
+  - **Electron**: Desktop application framework for cross-platform development.
+  - **React**: Frontend framework.
+  - **Tailwind CSS**: Styling the application.
+  - **[Shadcn UI](https://ui.shadcn.com/)**: Building the UI components.
+- *Backend*:
+  - **[Bun](https://bun.sh/)**: Node.js super-set, it is a faster alternative to Node.js.
+  - **TypeScript**: Safer and more reliable programming language, while still being easy to write.
+  - **[Elysia](https://elysiajs.com/)**: Best-in-class backend framework for [Bun](https://bun.sh/) (Bun is a Node.js super-set).
+  - **PostgreSQL with [Prisma](https://www.prisma.io/) ORM**: Prisma allows for a better developer experience and is easier to maintain than raw SQL.
+- *Payment*:
+  - **[Stripe](https://stripe.com/)**: To handle subscriptions from organizations for their metered usage of the accounts.
+- *Hosting*:
+  - **[Hetzner](https://www.hetzner.com/)**: Affordable and reliable hosting.
+
+## Challenges and Learnings
+
+The main challenge was to engineer and create a library that could be used to login, message, and manage the accounts across multiple platforms.
+
+The second challenge was to create a RBAC[^1] system that could be used to manage the permissions of the members of the client organization.
+
+[^1]: RBAC stands for [Role-Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control).
