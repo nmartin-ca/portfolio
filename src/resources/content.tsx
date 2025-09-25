@@ -56,19 +56,19 @@ const home: Home = {
     display: false,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Nolan Martin</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/socl-gg",
   },
   subline: (
     <>
       I'm {person.firstName}, a {person.employed ? "" : "freelance"} {person.role}
-      {person.employed ? (
+      {/* {person.employed ? (
         <>
           at{" "}
           <Logo
@@ -79,7 +79,7 @@ const home: Home = {
           , where I craft intuitive
           <br /> user experiences. After hours, I build my own projects.
         </>
-      ) : null}
+      ) : null} */}
     </>
   ),
 };
