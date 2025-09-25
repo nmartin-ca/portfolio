@@ -33,7 +33,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
           cursor="interactive"
           radius="l"
           src={post.metadata.image}
-          alt={"Thumbnail of " + post.metadata.title}
+          alt={`Thumbnail of ${post.metadata.title}`}
           aspectRatio="16 / 9"
         />
       )}
@@ -42,7 +42,9 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
           <Row gap="24" vertical="center">
             <Row vertical="center" gap="16">
               <Avatar src={person.avatar} size="s" />
-              <Text variant="label-default-s">{person.name}</Text>
+              <Text variant="label-default-s">
+                {person.firstName} {person.lastName}
+              </Text>
             </Row>
             <Text variant="body-default-xs" onBackground="neutral-weak">
               {formatDate(post.metadata.publishedAt, false)}

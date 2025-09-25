@@ -24,7 +24,7 @@ export default function Blog() {
         path={blog.path}
         image={`/api/og/generate?title=${encodeURIComponent(blog.title)}`}
         author={{
-          name: person.name,
+          name: `${person.firstName} ${person.lastName}`,
           url: `${baseURL}/blog`,
           image: `${baseURL}${person.avatar}`,
         }}

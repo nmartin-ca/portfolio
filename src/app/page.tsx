@@ -37,7 +37,7 @@ export default function Home() {
         description={home.description}
         image={`/api/og/generate?title=${encodeURIComponent(home.title)}`}
         author={{
-          name: person.name,
+          name: `${person.firstName} ${person.lastName}`,
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
@@ -123,8 +123,11 @@ export default function Home() {
           </Row>
         </Column>
       )}
-      <Projects range={[2]} />
-      <Mailchimp />
+      <RevealFx translateY="16" delay={0.6}>
+        <Projects range={[2, about.work.experiences.length]} />
+      </RevealFx>
+      {/* <Projects range={[2, 10]} /> */}
+      {/* <Mailchimp /> */}
     </Column>
   );
 }

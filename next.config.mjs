@@ -16,6 +16,21 @@ const nextConfig = {
         hostname: "www.google.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "s3.nmartin.ca",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.nmartin.ca",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "nmartin.ca",
+        pathname: "**",
+      },
     ],
   },
   sassOptions: {

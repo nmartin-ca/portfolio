@@ -23,7 +23,7 @@ export default function Work() {
         description={work.description}
         image={`/api/og/generate?title=${encodeURIComponent(work.title)}`}
         author={{
-          name: person.name,
+          name: `${person.firstName} ${person.lastName}`,
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}

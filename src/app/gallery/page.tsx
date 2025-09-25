@@ -23,7 +23,7 @@ export default function Gallery() {
         path={gallery.path}
         image={`/api/og/generate?title=${encodeURIComponent(gallery.title)}`}
         author={{
-          name: person.name,
+          name: `${person.firstName} ${person.lastName}`,
           url: `${baseURL}${gallery.path}`,
           image: `${baseURL}${person.avatar}`,
         }}

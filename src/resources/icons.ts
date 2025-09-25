@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 import {
   HiArrowUpRight,
@@ -12,6 +12,7 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiOutlineClock,
 } from "react-icons/hi2";
 
 import {
@@ -20,6 +21,7 @@ import {
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
   PiImageDuotone,
+  PiFileDuotone,
 } from "react-icons/pi";
 
 import {
@@ -27,13 +29,31 @@ import {
   SiNextdotjs,
   SiFigma,
   SiSupabase,
+  SiTypescript,
+  SiReact,
+  SiFastify,
+  SiTailwindcss,
 } from "react-icons/si";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaGithub,
+  FaLinkedin,
+  FaX,
+  FaThreads,
+  FaXTwitter,
+  FaFacebook,
+  FaPinterest,
+  FaWhatsapp,
+  FaReddit,
+  FaTelegram,
+  FaFile,
+} from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
+  clock: HiOutlineClock,
   email: HiEnvelope,
   globe: HiOutlineGlobeAsiaAustralia,
   person: PiUserCircleDuotone,
@@ -63,6 +83,12 @@ export const iconLibrary: Record<string, IconType> = {
   whatsapp: FaWhatsapp,
   reddit: FaReddit,
   telegram: FaTelegram,
+  typescript: SiTypescript,
+  react: SiReact,
+  fastify: SiFastify,
+  tailwindcss: SiTailwindcss,
+  resume: FaFile,
+  resumeOutline: PiFileDuotone,
 };
 
 export type IconLibrary = typeof iconLibrary;

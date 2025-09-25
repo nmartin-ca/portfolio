@@ -11,6 +11,7 @@ import {
   Meta,
   Schema,
   Row,
+  Line,
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -60,7 +61,7 @@ export default function About() {
         path={about.path}
         image={`/api/og/generate?title=${encodeURIComponent(about.title)}`}
         author={{
-          name: person.name,
+          name: `${person.firstName} ${person.lastName}`,
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
@@ -77,7 +78,7 @@ export default function About() {
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
-      <Row fillWidth s={{ direction: "column"}} horizontal="center">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column
             className={styles.avatar}
@@ -98,10 +99,14 @@ export default function About() {
               <Icon onBackground="accent-weak" name="globe" />
               {person.location}
             </Row>
+            <Row gap="8" vertical="center">
+              <Icon onBackground="accent-weak" name="clock" />
+              {person.timeZone}
+            </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
                 {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
+                  <Tag key={language} size="l">
                     {language}
                   </Tag>
                 ))}
@@ -143,7 +148,7 @@ export default function About() {
               </Row>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
+              {`${person.firstName} ${person.lastName}`}
             </Heading>
             <Text
               className={styles.textAlign}
@@ -220,23 +225,32 @@ export default function About() {
                       {experience.role}
                     </Text>
                     <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
-                      )}
+                      {experience.achievements.map((achievement: string, index: number) => (
+                        <Text
+                          as="li"
+                          variant="body-default-m"
+                          key={`${experience.company}-${index}`}
+                        >
+                          {achievement}
+                        </Text>
+                      ))}
                     </Column>
+                    {experience.inWorkSection && experience.workSlug && (
+                      <Row paddingTop="m">
+                        <Button
+                          href={`/work/${experience.workSlug}`}
+                          label="View work"
+                          size="s"
+                          suffixIcon="chevronRight"
+                          variant="tertiary"
+                        />
+                      </Row>
+                    )}
                     {experience.images && experience.images.length > 0 && (
                       <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
                         {experience.images.map((image, index) => (
                           <Row
-                            key={index}
+                            key={image.src}
                             border="neutral-medium"
                             radius="m"
                             minWidth={image.width}
@@ -291,7 +305,7 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill.title}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
@@ -311,7 +325,7 @@ export default function About() {
                       <Row fillWidth paddingTop="m" gap="12" wrap>
                         {skill.images.map((image, index) => (
                           <Row
-                            key={index}
+                            key={image.src}
                             border="neutral-medium"
                             radius="m"
                             minWidth={image.width}

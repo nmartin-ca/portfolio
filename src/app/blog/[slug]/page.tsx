@@ -88,7 +88,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
             }
             author={{
-              name: person.name,
+              name: `${person.firstName} ${person.lastName}`,
               url: `${baseURL}${about.path}`,
               image: `${baseURL}${person.avatar}`,
             }}
@@ -106,7 +106,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             <Row gap="16" vertical="center">
               <Avatar size="s" src={person.avatar} />
               <Text variant="label-default-m" onBackground="brand-weak">
-                {person.name}
+                {person.firstName} {person.lastName}
               </Text>
             </Row>
           </Row>
@@ -126,11 +126,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Column as="article" maxWidth="s">
             <CustomMDX source={post.content} />
           </Column>
-          
-          <ShareSection 
-            title={post.metadata.title} 
-            url={`${baseURL}${blog.path}/${post.slug}`} 
-          />
+
+          <ShareSection title={post.metadata.title} url={`${baseURL}${blog.path}/${post.slug}`} />
 
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
             <Line maxWidth="40" />

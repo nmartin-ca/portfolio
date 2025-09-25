@@ -1,5 +1,5 @@
-import { IconName } from "@/resources/icons";
-import { zones } from "tzdata";
+import type { IconName } from "@/resources/icons";
+import type { zones } from "tzdata";
 
 /**
  * IANA time zone string (e.g., 'Asia/Calcutta', 'Europe/Vienna').
@@ -15,18 +15,22 @@ export type Person = {
   firstName: string;
   /** Last name of the person */
   lastName: string;
-  /** The name you want to display, allows variations like nicknames */
-  name: string;
+  /** Current Employment Status */
+  employed: boolean;
   /** Role or job title */
   role: string;
   /** Path to avatar image */
   avatar: string;
   /** Email address */
   email: string;
+  /** Location */
+  location: string;
   /** IANA time zone location */
-  location: IANATimeZone;
+  timeZone: IANATimeZone;
   /** Languages spoken */
   languages?: string[];
+  /** Resume href */
+  resume: string;
 };
 
 /**
@@ -149,7 +153,11 @@ export interface About extends BasePageConfig {
       /** Role or job title */
       role: string;
       /** Achievements at the company */
-      achievements: React.ReactNode[];
+      achievements: string[];
+      /** In Work Section */
+      inWorkSection: boolean;
+      /** Work page slug for related project */
+      workSlug?: string;
       /** Images related to the experience */
       images?: Array<{
         /** Image source path */

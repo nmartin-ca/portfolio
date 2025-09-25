@@ -4,8 +4,8 @@ import { baseURL, person } from "@/resources";
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
-  let url = new URL(request.url);
-  let title = url.searchParams.get("title") || "Portfolio";
+  const url = new URL(request.url);
+  const title = url.searchParams.get("title") || "Portfolio";
 
   async function loadGoogleFont(font: string) {
     const url = `https://fonts.googleapis.com/css2?family=${font}`;
@@ -14,7 +14,7 @@ export async function GET(request: Request) {
 
     if (resource) {
       const response = await fetch(resource[1]);
-      if (response.status == 200) {
+      if (response.status === 200) {
         return await response.arrayBuffer();
       }
     }
@@ -70,6 +70,7 @@ export async function GET(request: Request) {
               objectFit: "cover",
               borderRadius: "100%",
             }}
+            alt={`Avatar of ${person.firstName} ${person.lastName}`}
           />
           <div
             style={{
@@ -86,7 +87,7 @@ export async function GET(request: Request) {
                 textWrap: "balance",
               }}
             >
-              {person.name}
+              {person.firstName} {person.lastName}
             </span>
             <span
               style={{

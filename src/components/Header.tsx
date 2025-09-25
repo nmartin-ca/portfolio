@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Button, Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -14,7 +14,7 @@ type TimeDisplayProps = {
   locale?: string; // Optionally allow locale, defaulting to 'en-GB'
 };
 
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-CA" }) => {
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -22,10 +22,8 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
       const now = new Date();
       const options: Intl.DateTimeFormatOptions = {
         timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
+        timeStyle: "long",
+        hour12: true,
       };
       const timeString = new Intl.DateTimeFormat(locale, options).format(now);
       setCurrentTime(timeString);
@@ -73,7 +71,7 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          {display.location && <Row s={{ hide: true }}>{person.timeZone}</Row>}
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -166,6 +164,9 @@ export const Header = () => {
                   </Row>
                 </>
               )}
+              <Row>
+                <ToggleButton prefixIcon="resumeOutline" href={person.resume} label="Resume" />
+              </Row>
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -184,7 +185,7 @@ export const Header = () => {
             gap="20"
           >
             <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
+              {display.time && <TimeDisplay timeZone={person.timeZone} />}
             </Flex>
           </Flex>
         </Flex>

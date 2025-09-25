@@ -19,6 +19,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  id?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,9 +30,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  id,
 }) => {
   return (
-    <Column fillWidth gap="m">
+    <Column id={id} fillWidth gap="m">
       <Carousel
         sizes="(max-width: 960px) 100vw, 960px"
         items={images.map((image) => ({
@@ -69,7 +71,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
-                  <Text variant="body-default-s">Read case study</Text>
+                  <Text variant="body-default-s">Read work experience</Text>
                 </SmartLink>
               )}
               {link && (
@@ -78,7 +80,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-s">Visit project</Text>
                 </SmartLink>
               )}
             </Flex>
