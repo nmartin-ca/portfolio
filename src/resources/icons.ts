@@ -33,6 +33,13 @@ import {
   SiReact,
   SiFastify,
   SiTailwindcss,
+  SiShadcnui,
+  SiElectron,
+  SiStripe,
+  SiPostgresql,
+  SiHetzner,
+  SiBun,
+  SiNodedotjs,
 } from "react-icons/si";
 
 import {
@@ -89,6 +96,13 @@ export const iconLibrary: Record<string, IconType> = {
   tailwindcss: SiTailwindcss,
   resume: FaFile,
   resumeOutline: PiFileDuotone,
+  shadcn: SiShadcnui,
+  electron: SiElectron,
+  stripe: SiStripe,
+  postgresql: SiPostgresql,
+  hetzner: SiHetzner,
+  bun: SiBun,
+  nodejs: SiNodedotjs,
 };
 
 export type IconLibrary = typeof iconLibrary;

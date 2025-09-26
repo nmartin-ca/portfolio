@@ -183,43 +183,32 @@ const about: About = {
     title: "Skills",
     skills: [
       {
-        title: "React",
+        title: "Web Development",
         description: (
-          <>Able to prototype & build performant web applications in React and Typescript.</>
+          <>Development of scalable web applications with modern frameworks.</>
         ),
         tags: [
           {
-            name: "TypeScript",
-            icon: "typescript",
-          },
-          {
             name: "React",
             icon: "react",
-          },
-        ],
-        images: [
-          {
-            src: "/images/projects/confidential-client/cover-01.webp",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: <>Building performant server-side rendered web applications with Next.js.</>,
-        tags: [
-          {
-            name: "TypeScript",
-            icon: "typescript",
           },
           {
             name: "Next.js",
             icon: "nextjs",
           },
+          {
+            name: "TypeScript",
+            icon: "typescript",
+          },
+          {
+            name: "Tailwind CSS",
+            icon: "tailwindcss",
+          },
+          {
+            name: "Shadcn UI",
+            icon: "shadcn",
+          }
         ],
-        // optional: leave the array empty if you don't want to display images
         images: [
           {
             src: "/images/projects/socl-gg/cover-01.webp",
@@ -232,7 +221,65 @@ const about: About = {
             alt: "Project image",
             width: 16,
             height: 9,
+          }
+        ],
+      },
+      {
+        title: "Backend Development",
+        description: (
+          <>Building robust APIs and server-side applications with modern frameworks and databases.</>
+        ),
+        tags: [
+          {
+            name: "Elysia",
+            icon: "elysia",
           },
+          {
+            name: "Fastify",
+            icon: "fastify",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "postgresql",
+          },
+          {
+            name: "Prisma ORM",
+            icon: "prisma",
+          },
+          {
+            name: "Bun",
+            icon: "bun",
+          },
+        ],
+        images: [
+          
+        ],
+      },
+      {
+        title: "DevOps & Hosting",
+        description: (
+          <>Deployment, hosting, and infrastructure management for production applications.</>
+        ),
+        tags: [
+          {
+            name: "Hetzner",
+            icon: "hetzner",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "postgresql",
+          },
+          {
+            name: "Bun",
+            icon: "bun",
+          },
+          {
+            name: "Node.js",
+            icon: "nodejs",
+          },
+        ],
+        images: [
+          
         ],
       },
     ],
