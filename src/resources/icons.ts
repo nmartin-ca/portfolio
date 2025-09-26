@@ -40,6 +40,7 @@ import {
   SiHetzner,
   SiBun,
   SiNodedotjs,
+  SiPrisma
 } from "react-icons/si";
 
 import {
@@ -103,6 +104,7 @@ export const iconLibrary: Record<string, IconType> = {
   hetzner: SiHetzner,
   bun: SiBun,
   nodejs: SiNodedotjs,
+  prisma: SiPrisma,
 };
 
 export type IconLibrary = typeof iconLibrary;
