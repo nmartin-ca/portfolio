@@ -31,6 +31,11 @@ const nextConfig = {
         hostname: "nmartin.ca",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "media.licdn.com",
+        pathname: "**",
+      },
     ],
   },
   sassOptions: {

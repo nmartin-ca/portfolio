@@ -40,7 +40,7 @@ import {
   SiHetzner,
   SiBun,
   SiNodedotjs,
-  SiPrisma
+  SiPrisma,
 } from "react-icons/si";
 
 import {
@@ -56,6 +56,7 @@ import {
   FaReddit,
   FaTelegram,
   FaFile,
+  FaGolang,
 } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -105,6 +106,7 @@ export const iconLibrary: Record<string, IconType> = {
   bun: SiBun,
   nodejs: SiNodedotjs,
   prisma: SiPrisma,
+  golang: FaGolang,
 };
 
 export type IconLibrary = typeof iconLibrary;

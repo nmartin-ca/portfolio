@@ -1,4 +1,13 @@
-import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type {
+  About,
+  Blog,
+  Gallery,
+  Home,
+  Newsletter,
+  Person,
+  Social,
+  Work,
+} from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -67,7 +76,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm {person.firstName}, a {person.employed ? "" : "freelance"} {person.role}
+      I'm {person.firstName}, a {person.employed ? "" : "freelance"}{" "}
+      {person.role}
       {/* {person.employed ? (
         <>
           at{" "}
@@ -105,10 +115,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I am a self-taught developer with a passion for building things the right way. I have
-        experience in a couple of programming languages and many frameworks, and I am always looking
-        to learn new things. I am currently focused on building web applications using React,
-        Next.js, and Typescript.
+        I am a self-taught developer with a passion for building things the
+        right way. I have experience in a couple of programming languages and
+        many frameworks, and I am always looking to learn new things. I am
+        currently focused on building web applications using React, Next.js, and
+        Typescript.
       </>
     ),
   },
@@ -168,7 +179,8 @@ const about: About = {
         name: "College of New Caledonia",
         description: (
           <>
-            Certificate of Completion in <b>Computer Network Electronics Technician</b>
+            Certificate of Completion in{" "}
+            <b>Computer Network Electronics Technician</b>
           </>
         ),
       },
@@ -207,7 +219,7 @@ const about: About = {
           {
             name: "Shadcn UI",
             icon: "shadcn",
-          }
+          },
         ],
         images: [
           {
@@ -221,13 +233,16 @@ const about: About = {
             alt: "Project image",
             width: 16,
             height: 9,
-          }
+          },
         ],
       },
       {
         title: "Backend Development",
         description: (
-          <>Building robust APIs and server-side applications with modern frameworks and databases.</>
+          <>
+            Building robust APIs and server-side applications with modern
+            frameworks and databases.
+          </>
         ),
         tags: [
           {
@@ -250,15 +265,20 @@ const about: About = {
             name: "Bun",
             icon: "bun",
           },
+          {
+            name: "Golang",
+            icon: "golang",
+          },
         ],
-        images: [
-          
-        ],
+        images: [],
       },
       {
         title: "DevOps & Hosting",
         description: (
-          <>Deployment, hosting, and infrastructure management for production applications.</>
+          <>
+            Deployment, hosting, and infrastructure management for production
+            applications.
+          </>
         ),
         tags: [
           {
@@ -270,17 +290,11 @@ const about: About = {
             icon: "postgresql",
           },
           {
-            name: "Bun",
-            icon: "bun",
-          },
-          {
-            name: "Node.js",
-            icon: "nodejs",
+            name: "Docker",
+            icon: "docker",
           },
         ],
-        images: [
-          
-        ],
+        images: [],
       },
     ],
   },

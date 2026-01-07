@@ -1,0 +1,61 @@
+---
+title: "Golang Snake Game"
+publishedAt: "2026-01-02"
+summary: "High-performance multiplayer arcade game engineered with Golang for 60 TPS concurrency."
+images:
+  - "/images/projects/golang-snake/cover-01.webp"
+team:
+  - name: "Nolan Martin"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nolan-k-martin/"
+  - name: "Anonymous Developer"
+    role: "Frontend Developer"
+    avatar: ""
+    linkedIn: ""
+---
+
+## Overview
+
+This project is a real-time, player-vs-player arcade game inspired by *Slither.io*, differentiated by a high-stakes economy where players *would* wager cryptocurrency on their performance. The core technical achievement of this project was the engineering of a low-latency game server capable of sustaining 60 Ticks Per Second (TPS) for concurrent users.
+
+## Architecture & Tech Stack
+
+The system is split into a Next.js frontend, a Bun backend, and a distributed Golang gameserver designed for speed.
+
+- **Game Engine**: *Golang* with **[GoFiber](https://gofiber.io/)**. Chosen for its raw performance, efficient concurrency model (Goroutines), and strict typing.
+- **State & Caching**: *Redis*. Used for session management, inter-server communication, and real-time leaderboards.
+- **Persistence**: *CockroachDB*. A distributed PostgreSQL-compatible database chosen to ensure transactional consistency for financial data across regions. Allows eventual consistency for non-critical data (leaderboards, player profiles), and strong consistency for critical data (cashout logs and user transactions).
+- **Frontend**: **Next.js**, **React**, **Tailwind CSS**, and **[Shadcn UI](https://ui.shadcn.com/)**.
+- **Payments**: **[Privy](https://privy.io/)** for embedded wallet management.
+- **Infrastructure**: Hosted on **[Hetzner](https://www.hetzner.com/)** for price-performance ratio.
+
+## Engineering Challenges & Solutions
+
+### Migrating to Golang for Scalability
+
+The initial gameserver was built right into the backend using Elysia\'s websockets, but the single-threaded event loop architecture, and lack of *real* concurrency caused it to struggle with maintaining a 60 <abbr title="Ticks Per Second">TPS</abbr> game loop under the load of 30+ concurrent players. The overhead of garbage collection and lacking concurrency led to noticeable "tick drift", resulting in a bad experience for players.
+
+I re-created the game server using **Golang**, and this resulted in **significant** improvements:
+- **Concurrency**: Leveraging Goroutines allowed for efficient parallel processing of players (snakes) and game state updates without blocking the main tick loop.
+- **Performance**: Go reduced CPU overhead, ensuring the server consistently met the 16.6ms frame budget required for 60 TPS. (I was able to bump the tickrate up much higher, but felt 60 was a good balance between performance and user experience).
+- **Stability**: Strong typing and Go's error handling patterns resulted in less crashes/panics, critical for a gameserver.
+
+### Latency & Network Optimization
+
+In a latency-sensitive reaction game where money is at stake, network latency is a critical fairness factor.
+- **Server Browser**: Implemented a ping-based server selection system. The client queries available game nodes, and the list is sorted by latency, defaulting the player to their optimal region.
+- **Protocol**: Utilized WebSockets via GoFiber for full-duplex communication, sending optimized binary state updates rather than full JSON objects where possible to keep bandwidth usage low.
+
+### Transactional Integrity & Anti-Cheat
+
+Integrating real-money mechanics required strict safeguards against exploitation.
+- **Strong Transactions**: I used CockroachDB to handle game transactions, which allows for eventual consistency and strong consistency to ensure <abbr title="Atomicity, Consistency, Isolation, Durability">ACID</abbr> compliance even in a distributed environment.
+- **Anti-Combat Logging**: A common exploit in loot-based games is disconnecting to avoid death. I implemented a server-side "cash-out" mechanism. Players must start a cashout sequence which locks their movement for 5 seconds. During this window, they remain vulnerable to other players, ensuring risk/reward balance is maintained.
+
+## Game Mechanics
+
+- **Entry**: Players pay an entry fee (e.g., $1, $5, $10) via [Privy](https://privy.io) to spawn.
+- **Gameplay**: Standard snake mechanics. When a player dies, their entry fee or accumulated balance is dropped as "player food".
+- **Economy**: Eating "player food" increases the snake\'s balance, which can be used after cashing out.
+- **Exit**: Successfully surviving the cash-out timer transfers the accumulated value back to the player's wallet, where it can be withdrawn or played again.
