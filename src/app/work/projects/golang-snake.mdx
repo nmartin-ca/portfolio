@@ -1,7 +1,7 @@
 ---
 title: "Golang Snake Game"
 publishedAt: "2026-01-02"
-summary: "High-performance multiplayer arcade game engineered with Golang for 60 TPS concurrency."
+summary: "High-performance multiplayer arcade game made with Golang."
 images:
   - "/images/projects/golang-snake/cover-01.webp"
 team:
@@ -21,13 +21,13 @@ This project is a real-time, player-vs-player arcade game inspired by *Slither.i
 
 ## Architecture & Tech Stack
 
-The system is split into a Next.js frontend, a Bun backend, and a distributed Golang gameserver designed for speed.
+The system is split into a Next.js frontend, a Bun backend for user state, payments, and matchmaking, and a distributed Golang gameserver designed for speed & scalability.
 
 - **Game Engine**: *Golang* with **[GoFiber](https://gofiber.io/)**. Chosen for its raw performance, efficient concurrency model (Goroutines), and strict typing.
 - **State & Caching**: *Redis*. Used for session management, inter-server communication, and real-time leaderboards.
-- **Persistence**: *CockroachDB*. A distributed PostgreSQL-compatible database chosen to ensure transactional consistency for financial data across regions. Allows eventual consistency for non-critical data (leaderboards, player profiles), and strong consistency for critical data (cashout logs and user transactions).
+- **Persistence**: *CockroachDB*. A distributed PostgreSQL-compatible database chosen to ensure consistency for data across regions. Allows eventual consistency for non-critical data (leaderboards, player profiles), and strong consistency for critical data (cashout logs and user transactions).
 - **Frontend**: **Next.js**, **React**, **Tailwind CSS**, and **[Shadcn UI](https://ui.shadcn.com/)**.
-- **Payments**: **[Privy](https://privy.io/)** for embedded wallet management.
+- **Payments**: **[Privy](https://privy.io/)** for embedded wallet management. Custom middleware for handling payments ensuring we *own* the funds and transactions.
 - **Infrastructure**: Hosted on **[Hetzner](https://www.hetzner.com/)** for price-performance ratio.
 
 ## Engineering Challenges & Solutions
@@ -37,7 +37,7 @@ The system is split into a Next.js frontend, a Bun backend, and a distributed Go
 The initial gameserver was built right into the backend using Elysia\'s websockets, but the single-threaded event loop architecture, and lack of *real* concurrency caused it to struggle with maintaining a 60 <abbr title="Ticks Per Second">TPS</abbr> game loop under the load of 30+ concurrent players. The overhead of garbage collection and lacking concurrency led to noticeable "tick drift", resulting in a bad experience for players.
 
 I re-created the game server using **Golang**, and this resulted in **significant** improvements:
-- **Concurrency**: Leveraging Goroutines allowed for efficient parallel processing of players (snakes) and game state updates without blocking the main tick loop.
+- **Concurrency**: Leveraging Goroutines allowed for concurrent processing of players (snakes) and game state updates without blocking the main tick loop. Unlike JavaScript/TypeScript, Golang makes it easy for cross-thread communication.
 - **Performance**: Go reduced CPU overhead, ensuring the server consistently met the 16.6ms frame budget required for 60 TPS. (I was able to bump the tickrate up much higher, but felt 60 was a good balance between performance and user experience).
 - **Stability**: Strong typing and Go's error handling patterns resulted in less crashes/panics, critical for a gameserver.
 
@@ -45,13 +45,14 @@ I re-created the game server using **Golang**, and this resulted in **significan
 
 In a latency-sensitive reaction game where money is at stake, network latency is a critical fairness factor.
 - **Server Browser**: Implemented a ping-based server selection system. The client queries available game nodes, and the list is sorted by latency, defaulting the player to their optimal region.
-- **Protocol**: Utilized WebSockets via GoFiber for full-duplex communication, sending optimized binary state updates rather than full JSON objects where possible to keep bandwidth usage low.
+- **Protocol**: Utilized WebSockets via GoFiber for two-way communication, sending optimized binary state updates rather than full JSON objects where possible to keep bandwidth usage low.
 
 ### Transactional Integrity & Anti-Cheat
 
 Integrating real-money mechanics required strict safeguards against exploitation.
 - **Strong Transactions**: I used CockroachDB to handle game transactions, which allows for eventual consistency and strong consistency to ensure <abbr title="Atomicity, Consistency, Isolation, Durability">ACID</abbr> compliance even in a distributed environment.
 - **Anti-Combat Logging**: A common exploit in loot-based games is disconnecting to avoid death. I implemented a server-side "cash-out" mechanism. Players must start a cashout sequence which locks their movement for 5 seconds. During this window, they remain vulnerable to other players, ensuring risk/reward balance is maintained.
+- **Cheat Prevention**: Users can only control their turn direction, boost state, and cashout state, so there is no way to "cheat" movement just based on the network protocol alone. Additionally, the game logic (Score, Boost, Cashout) is implemented on the server side, ensuring that the client cannot manipulate the game state.
 
 ## Game Mechanics
 
