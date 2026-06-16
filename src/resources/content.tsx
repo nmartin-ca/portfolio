@@ -8,6 +8,7 @@ import type {
   Social,
   Work,
 } from "@/types";
+import { encodeEmailAddress } from "@/utils/emailObfuscation";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -45,7 +46,8 @@ const social: Social = [
   {
     name: "Email",
     icon: "email",
-    link: `mailto:${person.email}`,
+    link: "/contact/email",
+    obfuscatedEmail: encodeEmailAddress(person.email),
   },
   {
     name: "Resume",

@@ -63,6 +63,11 @@ export type Social = Array<{
    * The link is not validated by code, make sure it's correct
    */
   link: string;
+  /**
+   * Encoded email value for contact links that should avoid rendering a
+   * literal mailto address in the HTML source.
+   */
+  obfuscatedEmail?: string;
 }>;
 
 /**

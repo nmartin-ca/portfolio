@@ -1,5 +1,6 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
+import { IconButton, Row, SmartLink, Text } from "@once-ui-system/core";
+import { EmailLinkObfuscator } from "./EmailLinkObfuscator";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -33,12 +34,15 @@ export const Footer = () => {
           </Text>
         </Text>
         <Row gap="16">
+          <EmailLinkObfuscator />
           {social.map(
             (item) =>
               item.link && (
                 <IconButton
                   key={item.name}
                   href={item.link}
+                  data-email-obfuscated={item.obfuscatedEmail}
+                  rel={item.obfuscatedEmail ? "nofollow noindex" : undefined}
                   icon={item.icon}
                   tooltip={item.name}
                   size="s"

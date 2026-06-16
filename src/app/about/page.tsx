@@ -1,3 +1,7 @@
+import { EmailLinkObfuscator } from "@/components";
+import TableOfContents from "@/components/about/TableOfContents";
+import styles from "@/components/about/about.module.scss";
+import { about, baseURL, person, social } from "@/resources";
 import {
   Avatar,
   Button,
@@ -5,17 +9,14 @@ import {
   Heading,
   Icon,
   IconButton,
+  Line,
   Media,
+  Meta,
+  Row,
+  Schema,
   Tag,
   Text,
-  Meta,
-  Schema,
-  Row,
-  Line,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
-import TableOfContents from "@/components/about/TableOfContents";
-import styles from "@/components/about/about.module.scss";
 import React from "react";
 
 export async function generateMetadata() {
@@ -168,6 +169,7 @@ export default function About() {
                 fitWidth
                 data-border="rounded"
               >
+                <EmailLinkObfuscator />
                 {social.map(
                   (item) =>
                     item.link && (
@@ -176,6 +178,8 @@ export default function About() {
                           <Button
                             key={item.name}
                             href={item.link}
+                            data-email-obfuscated={item.obfuscatedEmail}
+                            rel={item.obfuscatedEmail ? "nofollow noindex" : undefined}
                             prefixIcon={item.icon}
                             label={item.name}
                             size="s"
@@ -188,6 +192,8 @@ export default function About() {
                             size="l"
                             key={`${item.name}-icon`}
                             href={item.link}
+                            data-email-obfuscated={item.obfuscatedEmail}
+                            rel={item.obfuscatedEmail ? "nofollow noindex" : undefined}
                             icon={item.icon}
                             variant="secondary"
                           />
